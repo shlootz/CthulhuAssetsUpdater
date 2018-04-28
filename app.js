@@ -31,4 +31,19 @@ app.post('/upload', function(req, res) {
     });
 }).bind(this);
 
+//DOWNLOAD FILE TO LOCATION
+/*var download = require('download-file')
+
+var url = "http://i.imgur.com/G9bDaPH.jpg"
+
+var options = {
+    directory: "./images/cats/",
+    filename: "cat.gif"
+}
+
+download(url, options, function(err){
+    if (err) throw err
+    console.log("meow")
+})*/
+
 app.listen(8000);
