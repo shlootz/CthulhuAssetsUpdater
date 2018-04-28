@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "download-file": "^0.1.5",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
     "node-wget": "^0.4.2",

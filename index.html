@@ -10,5 +10,16 @@
     <input type="file" name="sampleFile">
     <input type='submit' value='Upload!'>
 </form>
+
+<form ref='downloadForm'
+      id='downloadForm'
+      action='http://localhost:8000/download'
+      method='post'
+      encType="multipart/form-data">
+    Game Name <br>
+    <input type="text" name="gameName">
+    <input type="text" name="archiveLink">
+    <input type='submit' value='Download!'>
+</form>
 </body>
 </html>
