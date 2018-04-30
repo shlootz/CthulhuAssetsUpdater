@@ -4,6 +4,7 @@ const app = express();
 const unzip = require('unzip2');
 const fs = require('fs');
 const wget = require('node-wget');
+const shell = require('shelljs');
 
 app.use(fileUpload());
 
@@ -33,6 +34,8 @@ app.post('/upload', function(req, res) {
 app.post('/download', function(req, res) {
     let name = req.body["gameName"];
     let downloadURL = req.body["archiveLink"];
+
+    shell.wget()
 
     wget({url: downloadURL, dest: "games/"+name+"/"+name+"/"+name+"/graphicsSprite/design_tool_layout/"}, function (err){
         if (err) throw err
