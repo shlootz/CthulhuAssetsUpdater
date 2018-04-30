@@ -13,7 +13,7 @@ app.post('/upload', function(req, res) {
         return res.status(400).send('No files were uploaded.');
 
     let name = req.body["gameName"];
-    let path = "games/"+name+"/"+name+"/"+name+"/graphicsSprite/design_tool_layout/"
+    let path = "games/"+name+"/"+name+"/graphicsSprite/design_tool_layout/"
     // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
     let sampleFile = req.files.sampleFile;
 
@@ -34,8 +34,6 @@ app.post('/upload', function(req, res) {
 app.post('/download', function(req, res) {
     let name = req.body["gameName"];
     let downloadURL = req.body["archiveLink"];
-
-    shell.wget()
 
     wget({url: downloadURL, dest: "games/"+name+"/"+name+"/"+name+"/graphicsSprite/design_tool_layout/"}, function (err){
         if (err) throw err
