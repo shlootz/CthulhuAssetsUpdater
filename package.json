@@ -13,6 +13,7 @@
     "express-fileupload": "^0.4.0",
     "node-svn-ultimate": "^1.1.0",
     "node-wget": "^0.4.2",
+    "openurl": "^1.1.1",
     "shelljs": "^0.8.1",
     "unzip-stream": "^0.3.0",
     "unzip2": "^0.2.5"
