@@ -34,11 +34,36 @@ app.post('/upload', function(req, res) {
 app.post('/download', function(req, res) {
     let name = req.body["gameName"];
     let downloadURL = req.body["archiveLink"];
+    let dest =  "games/"+name+"/"+name+"/graphicsSprite/design_tool_layout/";
+    downloadURL = downloadURL.replace("dl=0", "dl=1");
 
-    wget({url: downloadURL, dest: "games/"+name+"/"+name+"/"+name+"/graphicsSprite/design_tool_layout/"}, function (err){
-        if (err) throw err
-        res.send("File downloaded ");
-    });
+    let extract = downloadURL.split("/");
+    let fileName = extract[extract.length-1].replace("?dl=1", "");
+
+    // wget({url: downloadURL, dest: "games/"+name+"/"+name+"/"+name+"/graphicsSprite/design_tool_layout/"}, function (err){
+    //     if (err) throw err
+    //     res.send("File downloaded ");
+    // });
+
+    wget({
+            url:  downloadURL,
+            dest: dest,      // destination path or path with filenname, default is ./
+            timeout: 2000       // duration to wait for request fulfillment in milliseconds, default is 2 seconds
+        },
+        function (error, response, body) {
+            if (error) {
+                console.log('--- error:');
+                console.log(error);            // error encountered
+            } else {
+                // console.log('--- headers:');
+                // console.log(response.headers); // response headers
+                // console.log('--- body:');
+                // console.log(body);             // content of package
+                res.send("File downloaded ");
+                fs.createReadStream(dest+fileName).pipe(unzip.Extract({ path: dest }));
+            }
+        }
+    );
 }).bind(this);
 
 app.listen(8000);
