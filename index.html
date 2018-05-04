@@ -2,10 +2,10 @@
 <body>
 <form ref='uploadForm'
       id='uploadForm'
-      action='http://192.168.10.150:8000/upload'
+      action='http://localhost:8000/upload'
       method='post'
       encType="multipart/form-data">
-    Game Name <br>
+    Game Name | Browse to Archive file <br>
     <input type="text" name="gameName">
     <input type="file" name="sampleFile">
     <input type='submit' value='Upload!'>
@@ -13,13 +13,25 @@
 
 <form ref='downloadForm'
       id='downloadForm'
-      action='http://192.168.10.150:8000/download'
+      action='http://localhost:8000/download'
       method='post'
       encType="multipart/form-data">
-    Game Name <br>
+    Game Name | Paste the Dropbox link <br>
     <input type="text" name="gameName">
     <input type="text" name="archiveLink">
     <input type='submit' value='Download!'>
 </form>
+
+<form ref='downloadFormCC'
+      id='downloadFormCC'
+      action='http://localhost:8000/downloadCC'
+      method='post'
+      encType="multipart/form-data">
+    Game Name | Paste the AdobeCC link <br>
+    <input type="text" name="gameName">
+    <input type="text" name="archiveLink">
+    <input type='submit' value='Download!'>
+</form>
+
 </body>
 </html>
